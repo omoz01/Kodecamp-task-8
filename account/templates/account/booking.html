@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block body%}
+<body>
+    <h1 style="text-align: center; color:rgb(223, 26, 26)">Book a Room Below</h1>
+    
+    <div class="container" style="margin: 50px;">
+        <form method="post">
+            {% csrf_token %}
+            <h3 style="color: rgb(221, 65, 44); margin-bottom: 30px;">Enter Customer Details Below </h3>
+            <div>
+                <label for="name">Occupant Name</label>
+                <input type="text" id="name" name="occupant_name" required>
+            </div><br>
+            <div>
+                <label for="address">Occupant Address</label>
+                <input type="text" id="address" name="occupant_address" required>
+            </div><br>
+            <div>
+                <label for="email">Occupant Email</label>
+                <input type="email" id="email" name="occupant_email" required>
+            </div><br>
+            
+            <div>
+                <label for="occupation">Occupant Occupation</label>
+                <input type="text" id="occupant_occupation" name="occupant_occupation" required>
+            </div><br>
+    <h3 style="margin: 30px; color: rgb(221, 65, 44);">Enter Booking Details Below</h3>
+        <div>
+            <label for="number_of_night">Number of Night</label>
+            <input type="number" id="number_of_night" name="number_of_night" required>
+        </div><br>
+            <div>
+                <label for="room number">Room Number</label>
+                <input type="number" id="room_number" name="room_number" required>
+            </div><br>
+            <div>
+                <label for="amount paid">Amount Paid</label>
+                <input type="number" id="amount_paid" name="amount_paid" required>
+            </div><br>
+            
+            <div>
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" name="start_date" required>
+            </div><br>
+            <div>
+                <label for="end_date">End Date</label>
+                <input type="date" id="nend_date" name="end_date" required>
+            </div><br>
+            <div>
+                <button type="submit" class= "btn btn-primary submitr">Book</button>
+            </div>
+        </form>
+    </body>
+
+    </div>
+    
+{% endblock body%}
+</html>
