@@ -1,3 +1,4 @@
+{% extends "index.html" %}
 {% load static %}
 <!--
 Author: W3layouts
@@ -50,12 +51,13 @@ Author URL: http://w3layouts.com
 						<a class="nav-link" href="{% url 'home:contact' %}">Contact</a>
 					</li>
 				</ul>
-				<a href="{% url 'account:signup' %}" class="ml-3 book btn btn-secondary btn-style">Signup</a>
+				<a href="{% url 'account:login' %}" class="ml-3 book btn btn-secondary btn-style">Login</a>
 			</div>
 		</div>
 	</nav>
 	<!--//nav-->
 </header>
+{% block body %}
 <!-- //w3l-header -->
 <section class="w3l-breadcrumb">
     <div class="breadcrum-bg py-sm-5 py-4">
@@ -392,6 +394,7 @@ Author URL: http://w3layouts.com
     </div>
     <!-- /main-slider -->
 </section>
+{% endblock body %}
 <section class="w3l-footer-29-main">
   <div class="footer-29 py-5">
     <div class="container py-lg-4">

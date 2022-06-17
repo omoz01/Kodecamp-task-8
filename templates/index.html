@@ -53,7 +53,6 @@
                     <a href="{% url 'account:booking' %}" class="ml-3 book btn btn-secondary btn-style">Book Now</a>
                     <a href="{% url 'account:logout' %}" class="ml-3 book btn btn-secondary btn-style">Logout</a>
                 {% else %}
-                    <a href="{% url 'account:signup' %}" class="ml-3 book btn btn-secondary btn-style">Signup</a>
                     <a href="{% url 'account:login' %}" class="ml-3 book btn btn-secondary btn-style">Login</a>
                 {% endif%}
 			</div>
@@ -76,10 +75,14 @@
                          <div class="banner-info">
                              <div class="container">
                                  <div class="banner-info-bg">
+                                  {% if user.is_authenticated%}
+                                  <h5>Welcome, {{user.username}}</h5>
+                                  {% else %}
                                      <h5>Location is heavenly. Best to visit in week days to enjoy the peaceful beauty
                                      </h5>
-                                     <a class="btn btn-style transparent-btn mt-sm-5 mt-4" href="services.html"> Our
-                                         Services</a>
+                                  {% endif %}
+                                     <a class="btn btn-style transparent-btn mt-sm-5 mt-4" href="{% url 'home:services' %}">
+                                         Check out our Services</a>
                                  </div>
                              </div>
                          </div>
@@ -279,7 +282,7 @@
                         <li><span class="fa fa-check" aria-hidden="true"></span>Double rooms and family rooms</li>
                         <li><span class="fa fa-check" aria-hidden="true"></span>Enjoy a luxury experience</li>
                     </ul>
-                    <a href="{% url 'home:about' %}" class="btn btn-style btn-primary mt-4">Check all packages</a>
+                    <a href="{% url 'home:services' %}" class="btn btn-style btn-primary mt-4">Check all packages</a>
                 </div>
             </div>
         </div>
@@ -290,7 +293,11 @@
 	<div class="container py-xl-5 py-lg-3">
 		<div class="welcome-left text-center py-md-5 py-3">
 			<h3>Enjoy a Luxury experience. Discover our locaions. Relax and enjoy your holiday</h3>
-			<a href="booking.html" class="btn btn-style transparent-btn mt-sm-5 mt-4 mr-2">Book Now</a>
+      {% if user.is_authenticated %}
+			<a href="{% url 'account:booking' %}" class="btn btn-style transparent-btn mt-sm-5 mt-4 mr-2">Book Now</a>
+      {% else %}
+      <a href="{% url 'account:signup' %}" class="btn btn-style transparent-btn mt-sm-5 mt-4 mr-2">Signup/Login</a>
+      {% endif %}
 			<a href="{% url 'home:contact' %}" class="btn btn-style btn-primary mt-sm-5 mt-4">Contact Us</a>
 		</div>
 	</div>

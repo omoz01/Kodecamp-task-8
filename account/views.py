@@ -1,21 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from .models import HotelRecord
 
 # Create your views here.
-def signup(request):
-    if request.method == "POST":
-        data = UserCreationForm(request.POST)
-        if data.is_valid():
-            data.save()
-            return redirect("account:login")
-        else:
-            return redirect("account:signup")
-    context = {
-        "form": UserCreationForm()
-    }
-    return render(request, "account/signup.html", context)
-
 def booking(request):
     if request.method == "POST":
         name = request.POST.get("occupant_name")
